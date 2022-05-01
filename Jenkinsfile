@@ -30,8 +30,8 @@ pipeline {
             steps {
                 sh 'mvn clean package'
                 sh 'docker build -t pos-admin-api .'
-                sh 'docker run --network="host" -d -p8085:8085 pos-admin-api'
-            }
+                sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
+                sh 'docker push networkninjadh/pos-admin-api:latest'            }
         }
 
     }
