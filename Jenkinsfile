@@ -31,7 +31,8 @@ pipeline {
                 sh 'mvn clean package'
                 sh 'docker build -t pos-admin-api .'
                 sh 'echo $dockerhub_PSW | docker login -u $dockerhub_USR --password-stdin'
-                sh 'docker push networkninjadh/pos-admin-api:latest'            }
+                sh 'docker push networkninjadh/pos-admin-api:latest'
+            }
         }
 
     }
